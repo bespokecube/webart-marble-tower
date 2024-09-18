@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import { Marble } from "./Marble";
 
 export function Tower(props) {
   const { nodes, materials } = useGLTF("/marble-tower.glb");
@@ -16,6 +17,8 @@ export function Tower(props) {
         <mesh castShadow receiveShadow geometry={nodes.Cube027_7.geometry} material={materials._SIDE} />
         <mesh castShadow receiveShadow geometry={nodes.Cube027_8.geometry} material={materials._POT} />
         <mesh castShadow receiveShadow geometry={nodes.Cube027_9.geometry} material={materials._CACTUS} />
+
+        <Marble position={[-2.3, -6.485, 1.75]} />
       </group>
     </group>
   );
