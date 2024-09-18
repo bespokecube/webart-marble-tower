@@ -8,14 +8,15 @@ import { Tower } from "./Tower";
 const Scene = () => {
   const { viewport } = useThree();
 
+  const viewportRatio = viewport.width / viewport.height;
   const scaleDimension = viewport.width < viewport.height ? viewport.width : viewport.height;
-  const scaleFactor = scaleDimension / 10;
+  const scaleFactor = viewportRatio < 0.65 ? scaleDimension / 6 : scaleDimension / 10;
 
   return (
     <>
-      <Tower scale={scaleFactor} position={[scaleFactor, scaleFactor * 3, 0]} />
+      <Tower scale={scaleFactor} position={[scaleFactor * 1.2, scaleFactor * 3, 0]} />
       {/* <ambientLight intensity={3} color={"#ffffff"} /> */}
-      {/* <pointLight position={[5, 5, 5]} intensity={1000} decay={2} distance={10} /> */}
+      <pointLight position={[-2, 5, 6]} intensity={316} decay={1.8} distance={10} castShadow shadow-bias={0} />
     </>
   );
 };

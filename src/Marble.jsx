@@ -7,8 +7,6 @@ export function Marble(props) {
   const { nodes, materials, animations } = useGLTF("/marble.glb");
   const { actions, names } = useAnimations(animations, group);
 
-  const texture = useTexture("./webart-marble-tower.jpg");
-
   useEffect(() => {
     if (actions && names.length > 0) {
       const action = actions[names[0]];
@@ -17,14 +15,16 @@ export function Marble(props) {
     }
   }, [actions, names]);
 
-  const material = new THREE.MeshBasicMaterial({
-    map: texture,
+  const metalMaterial = new THREE.MeshStandardMaterial({
+    metalness: 1,
+    roughness: 0.6,
+    color: 0x999999,
   });
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group name='Scene'>
-        <mesh name='BALL' castShadow receiveShadow geometry={nodes.BALL.geometry} material={material} />
+        <mesh name='BALL' geometry={nodes.BALL.geometry} material={metalMaterial} />
       </group>
     </group>
   );
