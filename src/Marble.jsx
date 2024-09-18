@@ -1,11 +1,13 @@
 import React, { useRef, useEffect } from "react";
-import { useGLTF, useAnimations } from "@react-three/drei";
+import { useGLTF, useAnimations, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 
 export function Marble(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/marble.glb");
   const { actions, names } = useAnimations(animations, group);
+
+  const texture = useTexture("./webart-marble-tower.jpg");
 
   useEffect(() => {
     if (actions && names.length > 0) {
@@ -15,10 +17,14 @@ export function Marble(props) {
     }
   }, [actions, names]);
 
+  const material = new THREE.MeshBasicMaterial({
+    map: texture,
+  });
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group name='Scene'>
-        <mesh name='BALL' castShadow receiveShadow geometry={nodes.BALL.geometry} material={materials._BALL} />
+        <mesh name='BALL' castShadow receiveShadow geometry={nodes.BALL.geometry} material={material} />
       </group>
     </group>
   );
