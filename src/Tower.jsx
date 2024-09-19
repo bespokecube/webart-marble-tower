@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import { Marble } from "./Marble";
 import * as THREE from "three";
+import { Flag } from "./Flag";
 
 export function Tower(props) {
   const { nodes, materials } = useGLTF("/marble-tower.glb");
@@ -19,6 +20,7 @@ export function Tower(props) {
         <mesh geometry={nodes.towers.geometry} material={material} />
 
         <Marble position={[-2.3, -6.485, 1.75]} />
+        <Flag position={[-1.83, 1.15, 0.3]} />
       </group>
     </group>
   );
