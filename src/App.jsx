@@ -10,13 +10,12 @@ const Scene = () => {
 
   const viewportRatio = viewport.width / viewport.height;
   const scaleDimension = viewport.width < viewport.height ? viewport.width : viewport.height;
-  const scaleFactor = viewportRatio < 0.65 ? scaleDimension / 6 : scaleDimension / 10;
+  const scaleFactor = viewportRatio < 0.65 ? scaleDimension / 5.5 : scaleDimension / 10;
 
   return (
     <>
-      <Tower scale={scaleFactor} position={[scaleFactor * 1.2, scaleFactor * 3, 0]} />
-      {/* <ambientLight intensity={3} color={"#ffffff"} /> */}
-      <pointLight position={[-2, 5, 6]} intensity={316} decay={1.8} distance={10} castShadow shadow-bias={0} />
+      <Tower scale={scaleFactor} position={[scaleFactor * 1.2, scaleFactor * 2.6, 0]} />
+      <pointLight position={[-2, 5, 6]} intensity={1516} decay={1.8} distance={10} castShadow shadow-bias={0} />
     </>
   );
 };
@@ -24,11 +23,18 @@ const Scene = () => {
 const App = () => {
   return (
     <Canvas dpr={[1, 2]} orthographic camera={{ zoom: 220, position: [-2, 2, 9], rotation: [0, 0, 0] }}>
-      <OrbitControls />
+      <OrbitControls
+        enableZoom={false}
+        enablePan={false}
+        maxPolarAngle={Math.PI / 2.3}
+        minPolarAngle={Math.PI / 2.5}
+        maxAzimuthAngle={Math.PI / 2000}
+        minAzimuthAngle={-Math.PI / 6}
+      />
       <Scene />
       <EffectComposer>
         <ToneMapping mode={ToneMappingMode.NEUTRAL} />
-        {/* <Bloom mipmapBlur intensity={0.4} luminanceThreshold={0.3} levels={2} luminanceSmoothing={0.5} /> */}
+        <Bloom mipmapBlur intensity={0.4} luminanceThreshold={0.3} levels={2} luminanceSmoothing={0.1} />
       </EffectComposer>
     </Canvas>
   );
