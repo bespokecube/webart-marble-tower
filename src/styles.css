@@ -32,3 +32,12 @@ body {
   color: black;
   -webkit-font-smoothing: antialiased;
 }
+
+.perf-monitor-toggle-btn {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  z-index: 100;
+  opacity: 0;
+}
