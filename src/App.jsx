@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { Box, OrbitControls } from "@react-three/drei";
 import { ToneMappingMode } from "postprocessing";
 import { Perf } from "r3f-perf";
 import { Noise, EffectComposer, ToneMapping, Bloom } from "@react-three/postprocessing";
 import { Tower } from "./Tower";
+import { Preloader } from "./Preloader";
 
 const Scene = () => {
   const { viewport } = useThree();
@@ -38,7 +39,9 @@ const App = () => {
           maxAzimuthAngle={Math.PI / 2000}
           minAzimuthAngle={-Math.PI / 6}
         />
-        <Scene />
+        <Suspense fallback={<Preloader />}>
+          <Scene />
+        </Suspense>
         <EffectComposer>
           <ToneMapping mode={ToneMappingMode.NEUTRAL} />
           <Bloom mipmapBlur intensity={0.3} luminanceThreshold={0.3} levels={3} luminanceSmoothing={0.4} />
