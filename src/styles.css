@@ -4,6 +4,7 @@
 
 html,
 body,
+main,
 #root {
   width: 100%;
   height: 100%;
@@ -24,6 +25,16 @@ body,
   overflow: auto;
 }
 
+a,
+a:visited {
+  color: #060a0d;
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 body {
   position: fixed;
   overflow: hidden;
@@ -36,10 +47,75 @@ body {
 .perf-monitor-toggle-btn {
   position: fixed;
   bottom: 0;
-  right: 0;
+  left: 0;
   padding: 10px;
   z-index: 100;
   opacity: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+footer {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  z-index: 100;
+  padding: 10px 15px;
+  border-radius: 5px;
+  overflow: hidden;
+  max-width: calc(100% - 30px);
+}
+
+footer > span {
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 10;
+  position: relative;
+  color: #060a0d;
+  display: inline-block;
+  margin-right: 15px;
+  padding-right: 15px;
+}
+
+footer > span:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 1px;
+  background: #060a0d;
+}
+
+footer > span:last-of-type {
+  margin-right: 0;
+  padding-right: 0;
+}
+
+footer > span:last-of-type:before {
+  display: none;
+}
+
+footer:before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: #fff;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.2;
 }
 
 .preloader {
@@ -50,6 +126,7 @@ body {
   background-size: calc(100% / 3) 100%;
   animation: l7 1s infinite linear;
 }
+
 @keyframes l7 {
   33% {
     background-size: calc(100% / 3) 0%, calc(100% / 3) 100%, calc(100% / 3) 100%;
