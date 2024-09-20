@@ -34,7 +34,7 @@ const App = () => {
       <Scene />
       <EffectComposer>
         <ToneMapping mode={ToneMappingMode.NEUTRAL} />
-        <Bloom mipmapBlur intensity={0.4} luminanceThreshold={0.3} levels={2} luminanceSmoothing={0.1} />
+        <Bloom mipmapBlur intensity={0.3} luminanceThreshold={0.3} levels={3} luminanceSmoothing={0.4} />
       </EffectComposer>
     </Canvas>
   );

@@ -17,8 +17,7 @@ export function Flag(props) {
   }, [actions, names]);
 
   const material = new THREE.MeshBasicMaterial({
-    side: THREE.DoubleSide,
-    color: 0xd67e89,
+    color: 0xd66f8d,
   });
 
   return (
