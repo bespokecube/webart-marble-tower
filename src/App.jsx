@@ -1,9 +1,9 @@
 import React, { Suspense, useState } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
-import { Box, OrbitControls } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import { ToneMappingMode } from "postprocessing";
 import { Perf } from "r3f-perf";
-import { Noise, EffectComposer, ToneMapping, Bloom } from "@react-three/postprocessing";
+import { EffectComposer, ToneMapping, Bloom } from "@react-three/postprocessing";
 import { Tower } from "./Tower";
 import { Preloader } from "./Preloader";
 

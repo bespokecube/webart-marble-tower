@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import { useAnimations, useGLTF, useTexture } from "@react-three/drei";
+import { useAnimations, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
 export function Flag(props) {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF("/flag.glb");
+  const { nodes, animations } = useGLTF("/flag.glb");
   const { actions, names } = useAnimations(animations, group);
-  const texture = useTexture("./webart-marble-tower.png");
 
   useEffect(() => {
     if (actions && names.length > 0) {
@@ -25,8 +24,6 @@ export function Flag(props) {
       <group name='Scene'>
         <mesh
           name='FLAG001'
-          castShadow
-          receiveShadow
           geometry={nodes.FLAG001.geometry}
           morphTargetDictionary={nodes.FLAG001.morphTargetDictionary}
           morphTargetInfluences={nodes.FLAG001.morphTargetInfluences}

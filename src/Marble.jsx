@@ -1,10 +1,10 @@
 import React, { useRef, useEffect } from "react";
-import { useGLTF, useAnimations, useTexture } from "@react-three/drei";
+import { useGLTF, useAnimations } from "@react-three/drei";
 import * as THREE from "three";
 
 export function Marble(props) {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF("/marble.glb");
+  const { nodes, animations } = useGLTF("/marble.glb");
   const { actions, names } = useAnimations(animations, group);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export function Marble(props) {
 
   const metalMaterial = new THREE.MeshStandardMaterial({
     metalness: 1,
-    roughness: 0.6,
+    roughness: 0.5,
     color: 0x999999,
   });
 
