@@ -1,11 +1,12 @@
 import React, { Suspense, useState } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
-import { Box, OrbitControls } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import { ToneMappingMode } from "postprocessing";
 import { Perf } from "r3f-perf";
 import { EffectComposer, ToneMapping, Bloom } from "@react-three/postprocessing";
 import { Tower } from "./Tower";
 import { Preloader } from "./Preloader";
+import { BackgroundMusic } from "./BackgroundMusic";
 
 const Scene = () => {
   const { viewport } = useThree();
@@ -47,6 +48,7 @@ const App = () => {
           <Bloom mipmapBlur intensity={0.3} luminanceThreshold={0.3} levels={3} luminanceSmoothing={0.4} />
         </EffectComposer>
       </Canvas>
+      <BackgroundMusic />
     </>
   );
 };
