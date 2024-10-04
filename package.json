@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "author": "Oleg Rybin",
-  "repository": "github:benjaminmiles/react-three-vite",
+  "repository": "https://github.com/bespokecube/webart-marble-tower",
   "license": "CC BY 4.0",
   "dependencies": {
     "@react-three/drei": "9.108.1",
